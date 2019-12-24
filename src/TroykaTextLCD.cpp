@@ -55,13 +55,13 @@ void TroykaTextLCD::setContrast(uint8_t contrast) {
 }
 
 void TroykaTextLCD::setBrightness(uint16_t brightness) {
-  // Default PWM resolution 10 bit for board ESP8266
-  // Default PWM resolution 8 bit other boards
-  #if defined(ESP8266)
-    analogWrite(_pinBacklight, brightness << 2);
-  #else
-    analogWrite(_pinBacklight, brightness);
-  #endif
+// Default PWM resolution 10 bit for board ESP8266
+// Default PWM resolution 8 bit other boards
+#if defined(ESP8266)
+  analogWrite(_pinBacklight, brightness << 2);
+#else
+  analogWrite(_pinBacklight, brightness);
+#endif
 }
 
 void TroykaTextLCD::setIcon(uint8_t addr, uint8_t bit) {
@@ -73,12 +73,12 @@ void TroykaTextLCD::setIcon(uint8_t addr, uint8_t bit) {
 
 void TroykaTextLCD::clear() {
   command(LCD_CLEARDISPLAY);
-  delayMicroseconds(2000);
+  delay(2);
 }
 
 void TroykaTextLCD::home() {
   command(LCD_RETURNHOME);
-  delayMicroseconds(2000);
+  delay(2);
 }
 
 void TroykaTextLCD::setCursor(uint8_t col, uint8_t row) {
