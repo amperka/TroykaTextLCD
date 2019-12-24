@@ -122,7 +122,7 @@ public:
   void noAutoscroll();
   void createChar(uint8_t location, uint8_t charMap[]);
   void setCursor(uint8_t col, uint8_t row);
-  virtual size_t write(uint8_t value) override;
+  size_t write(uint8_t value) override;
   void command(uint8_t value);
 
 private:
