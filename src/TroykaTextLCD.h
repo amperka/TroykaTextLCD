@@ -1,5 +1,5 @@
-#ifndef __TROYKA_TEXT_LCD_H__
-#define __TROYKA_TEXT_LCD_H__
+#ifndef TROYKA_TEXT_LCD_H
+#define TROYKA_TEXT_LCD_H
 
 #include <Arduino.h>
 #include <Print.h>
@@ -76,26 +76,34 @@ constexpr uint8_t LCD_ICON_OFF = 0x00;
 constexpr uint8_t LCD_BOOST_ON = 0x04;
 // booster circuit is turn off
 constexpr uint8_t LCD_BOOST_OFF = 0x00;
-constexpr uint8_t LCD_OSC_122HZ = 0x00;
-constexpr uint8_t LCD_OSC_131HZ = 0x01;
-constexpr uint8_t LCD_OSC_144HZ = 0x02;
-constexpr uint8_t LCD_OSC_161HZ = 0x03;
-constexpr uint8_t LCD_OSC_183HZ = 0x04;
-constexpr uint8_t LCD_OSC_221HZ = 0x05;
-constexpr uint8_t LCD_OSC_274HZ = 0x06;
-constexpr uint8_t LCD_OSC_347HZ = 0x07;
+
+// frame frequency
+enum LCD_OSC {
+  F_122HZ = 0x00,
+  F_131HZ = 0x01,
+  F_144HZ = 0x02,
+  F_161HZ = 0x03,
+  F_183HZ = 0x04,
+  F_221HZ = 0x05,
+  F_274HZ = 0x06,
+  F_347HZ = 0x07
+};
 
 // flags Follower control
 constexpr uint8_t LCD_FOLLOWER_ON = 0x08;
 constexpr uint8_t LCD_FOLLOWER_OFF = 0x00;
-constexpr uint8_t LCD_RAB_1_00 = 0x00;
-constexpr uint8_t LCD_RAB_1_25 = 0x01;
-constexpr uint8_t LCD_RAB_1_50 = 0x02;
-constexpr uint8_t LCD_RAB_1_80 = 0x03;
-constexpr uint8_t LCD_RAB_2_00 = 0x04;
-constexpr uint8_t LCD_RAB_2_50 = 0x05;
-constexpr uint8_t LCD_RAB_3_00 = 0x06;
-constexpr uint8_t LCD_RAB_3_75 = 0x07;
+
+// generator amplified ratio
+enum LCD_RAB {
+  V0_1_00V = 0x00,
+  V0_1_25V = 0x01,
+  V0_1_50V = 0x02,
+  V0_1_80V = 0x03,
+  V0_2_00V = 0x04,
+  V0_2_50V = 0x05,
+  V0_3_00V = 0x06,
+  V0_3_75V = 0x07
+};
 
 class TroykaTextLCD : public Print {
 public:
@@ -141,4 +149,4 @@ private:
   uint8_t _pinBacklight;
 };
 
-#endif // __TROYKA_TEXT_LCD_H__
+#endif // TROYKA_TEXT_LCD_H

@@ -30,8 +30,8 @@ void TroykaTextLCD::begin(uint8_t cols, uint8_t rows, uint8_t charSize) {
   }
   setNormalFunction();
   setExtendFunction();
-  command(LCD_EX_SETBIASOSC | LCD_BIAS_1_5 | LCD_OSC_183HZ);
-  command(LCD_EX_FOLLOWERCONTROL | LCD_FOLLOWER_ON | LCD_RAB_2_00);
+  command(LCD_EX_SETBIASOSC | LCD_BIAS_1_5 | LCD_OSC::F_183HZ);
+  command(LCD_EX_FOLLOWERCONTROL | LCD_FOLLOWER_ON | LCD_RAB::V0_2_00V);
   delay(200);
   setNormalFunction();
 
